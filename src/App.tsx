@@ -1,10 +1,12 @@
-
+import { Canvas } from '@react-three/fiber';
 
 function App() {
   return (
-    <div className="app">
-
-    </div>
+    <>
+      <div>Outside Canvas</div>
+      <Canvas>
+      </Canvas>
+    </>
   );
 }
 
