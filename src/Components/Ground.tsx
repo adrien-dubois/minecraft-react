@@ -4,8 +4,9 @@ import { groundTexture } from "../images/textures"
 
 export const Ground = () => {
 
-    const [ref] = usePlane(() => ({
-        rotation: [-Math.PI / 4, 0, 0], position: [0, 0, 0]
+    const [ref] = usePlane<any>(() => ({
+        rotation: [-Math.PI / 2, 0, 0], 
+        position: [0, 0, 0]
     }))
 
     groundTexture.magFilter = NearestFilter;
@@ -13,7 +14,6 @@ export const Ground = () => {
     groundTexture.wrapT= RepeatWrapping;
     groundTexture.repeat.set(100, 100);
     return(
-        //@ts-ignore
             <mesh ref={ref} >
                 <planeBufferGeometry attach='geometry' args={[100, 100]} />
                 <meshStandardMaterial attach='material' map={groundTexture} />
