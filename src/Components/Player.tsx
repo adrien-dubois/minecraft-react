@@ -16,13 +16,11 @@ export const Player = () => {
     // 03 position reference
     // And this ref tracks the sphere
     const pos = useRef([0, 0, 0]);
-
-    // 
     useEffect(() => {
         api.position.subscribe((p) => pos.current = p)
     }, [api.position])
 
-
+    // 04 - same thing as position for the velocity
     const vel = useRef([0, 0, 0]);
     useEffect(() => {
         api.velocity.subscribe((v) => vel.current = v)
@@ -33,12 +31,10 @@ export const Player = () => {
     useFrame(() => {
          camera.position.copy(new Vector3(pos.current[0], pos.current[1], pos.current[2]));
 
-         api.velocity.set(0, 1, 0)
+        //  api.velocity.set(0, 1, 0)
     });
 
     return (
-        <mesh ref={ref}>
-
-        </mesh>
+        <mesh ref={ref}></mesh>
     )
 }
