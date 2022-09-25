@@ -1,6 +1,5 @@
 import { usePlane } from "@react-three/cannon"
-import { NearestFilter, RepeatWrapping } from "three"
-import { groundTexture } from "../images/textures"
+import { ground } from "../images/textures"
 
 export const Ground = () => {
 
@@ -9,14 +8,12 @@ export const Ground = () => {
         position: [0, 0, 0]
     }))
 
-    groundTexture.magFilter = NearestFilter;
-    groundTexture.wrapS= RepeatWrapping;
-    groundTexture.wrapT= RepeatWrapping;
-    groundTexture.repeat.set(100, 100);
+    ground.repeat.set(100, 100);
+
     return(
             <mesh ref={ref} >
-                <planeBufferGeometry attach='geometry' args={[100, 100]} />
-                <meshStandardMaterial attach='material' map={groundTexture} />
+                <planeGeometry attach='geometry' args={[100, 100]} />
+                <meshStandardMaterial attach='material' map={ground} />
             </mesh>
        
     )
