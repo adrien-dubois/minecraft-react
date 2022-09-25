@@ -8,11 +8,11 @@ interface IMoves {
     jump: boolean;
     run: boolean;
     remove: boolean;
-    texture1: boolean;
-    texture2: boolean;
-    texture3: boolean;
-    texture4: boolean;
-    texture5: boolean;
+    dirt: boolean;
+    grass: boolean;
+    glass: boolean;
+    wood: boolean;
+    log: boolean;
 }
 
 const InitialState : IMoves = {
@@ -23,11 +23,11 @@ const InitialState : IMoves = {
     jump: false,
     run: false,
     remove: false,
-    texture1: false,
-    texture2: false,
-    texture3: false,
-    texture4: false,
-    texture5: false
+    dirt: false,
+    grass: false,
+    glass: false,
+    wood: false,
+    log: false
 }
 
 function actionByKey(key: string) {   
