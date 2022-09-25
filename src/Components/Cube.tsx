@@ -4,10 +4,12 @@ import { useStore } from "../Hooks/useStore";
 import * as textures from '../images/textures';
 import { ICubes } from '../Interfaces';
 import { useKeyboard } from '../Hooks/useKeyboard';
+import { useState } from "react";
 
 
 export const Cube = ({position, texture} : ICubes) => {
 
+    const [isHovered, setIsHovered] = useState<boolean>(false);
     const [ref] = useBox<any>(() => ({
             type: 'Static',
             position
@@ -22,6 +24,18 @@ export const Cube = ({position, texture} : ICubes) => {
 
     return (
         <mesh
+            onPointerMove={
+                (e: ThreeEvent<MouseEvent>) => {
+                    e.stopPropagation();
+                    setIsHovered(true)
+                }
+            }
+            onPointerOut={
+                (e: ThreeEvent<MouseEvent>) => {
+                    e.stopPropagation();
+                    setIsHovered(false)
+                }
+            }
             onClick={
                 (e: ThreeEvent<MouseEvent>) => {
                     e.stopPropagation();
@@ -63,7 +77,13 @@ export const Cube = ({position, texture} : ICubes) => {
             ref={ref}
         >
                 <boxGeometry attach="geometry" />
-                <meshStandardMaterial map={activeTexture} attach="material" />
+                <meshStandardMaterial 
+                    map={activeTexture} 
+                    attach="material" 
+                    color={ isHovered ? 'grey' : 'white' }
+                    transparent={true}
+                    opacity={ texture === 'glass' ? 0.8 : 1 }
+                />
         </mesh>
     )
 }
