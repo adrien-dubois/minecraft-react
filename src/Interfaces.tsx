@@ -23,6 +23,6 @@ interface texture {
 }
 
 export type ICubes = {
-    position: Triplet;
+    position: any;
     texture: keyof typeof textures
 }
