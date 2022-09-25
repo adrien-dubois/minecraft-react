@@ -8,27 +8,27 @@ import {
 	woodImg
 } from './images'
 
-const dirtTexture = new TextureLoader().load(dirtImg)
-const logTexture = new TextureLoader().load(logImg)
-const grassTexture = new TextureLoader().load(grassImg)
-const glassTexture = new TextureLoader().load(glassImg)
-const woodTexture = new TextureLoader().load(woodImg)
-const groundTexture = new TextureLoader().load(grassImg)
+const dirt = new TextureLoader().load(dirtImg)
+const log = new TextureLoader().load(logImg)
+const grass = new TextureLoader().load(grassImg)
+const glass = new TextureLoader().load(glassImg)
+const wood = new TextureLoader().load(woodImg)
+const ground = new TextureLoader().load(grassImg)
 
-dirtTexture.magFilter = NearestFilter;
-logTexture.magFilter = NearestFilter;
-grassTexture.magFilter = NearestFilter;
-glassTexture.magFilter = NearestFilter;
-woodTexture.magFilter = NearestFilter;
-groundTexture.magFilter = NearestFilter;
-groundTexture.wrapS = RepeatWrapping
-groundTexture.wrapT = RepeatWrapping
+dirt.magFilter = NearestFilter;
+log.magFilter = NearestFilter;
+grass.magFilter = NearestFilter;
+glass.magFilter = NearestFilter;
+wood.magFilter = NearestFilter;
+ground.magFilter = NearestFilter;
+ground.wrapS = RepeatWrapping
+ground.wrapT = RepeatWrapping
 
 export {
-	dirtTexture,
-	logTexture,
-	grassTexture,
-	glassTexture,
-	woodTexture,
-	groundTexture
+	dirt,
+	log,
+	grass,
+	glass,
+	wood,
+	ground
 }

@@ -1,15 +1,22 @@
 import { useSphere } from "@react-three/cannon";
 import { useFrame, useThree } from "@react-three/fiber"
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Vector3 } from "three";
 import { useKeyboard } from '../Hooks/useKeyboard';
 
 const JUMP_FORCE = 4
-const SPEED = 4
+
 
 export const Player = () => {
 
-    const { moveBackward, moveForward, moveLeft, moveRight, jump } = useKeyboard();
+    const { moveBackward, moveForward, moveLeft, moveRight, jump, run } = useKeyboard();
+
+    /*----- Manage speed if run with Shiftkey -----*/
+    const [ SPEED, SETSPEED ] = useState<number>(4);
+
+    useEffect(() => {
+        run ? SETSPEED(8) : SETSPEED(4)
+    }, [run])
 
     // 01 - We take the camera
     const { camera } = useThree();
@@ -51,6 +58,8 @@ export const Player = () => {
             0,
             0
          );
+
+
 
          direction
             .subVectors(frontVector, sideVector)
