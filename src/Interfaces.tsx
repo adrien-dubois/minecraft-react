@@ -2,9 +2,9 @@ import { Triplet } from "@react-three/cannon";
 import * as textures from './images/textures';
 
 export interface IPos {
-    x: number,
-    y: number,
-    z: number
+    x: number;
+    y: number;
+    z: number;
 }
 
 export interface ICube {

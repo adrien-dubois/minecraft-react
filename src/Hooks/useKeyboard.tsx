@@ -7,6 +7,7 @@ interface IMoves {
     moveRight :boolean;
     jump: boolean;
     run: boolean;
+    remove: boolean;
     texture1: boolean;
     texture2: boolean;
     texture3: boolean;
@@ -21,6 +22,7 @@ const InitialState : IMoves = {
     moveRight :false,
     jump: false,
     run: false,
+    remove: false,
     texture1: false,
     texture2: false,
     texture3: false,
@@ -36,6 +38,7 @@ function actionByKey(key: string) {
         KeyA: "moveLeft"  ,
         KeyD: "moveRight"  ,
         Space: "jump"  ,
+        AltLeft: "remove",
         ShiftLeft: "run",
         Digit1: "dirt"  ,
         Digit2: "grass"  ,

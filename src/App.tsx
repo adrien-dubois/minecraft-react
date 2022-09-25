@@ -12,6 +12,7 @@ function App() {
       <Canvas>
         <Sky sunPosition={[100, 100, 20]}/>
         <ambientLight intensity={0.5}/>
+        <pointLight castShadow intensity={0.7} position={[100, 100, 100]} />
         <FPV/>
         <Physics>
           <Player/>

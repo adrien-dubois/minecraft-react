@@ -5,7 +5,6 @@ export const Cubes = () => {
   const [ cubes ] = useStore((state: any) => [
         state.cubes
   ])
-  console.log(cubes)
 
   return cubes.map(({key , pos , texture }: any) => {
     return (
